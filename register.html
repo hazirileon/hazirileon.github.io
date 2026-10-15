@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Create your account / X</title>
+</head>
+<body>
+
+    <div class="register-container">
+        <!-- Majhen zgornji logotip X v stilu X.com -->
+        <div class="register-header-logo">
+            <img src="slike/X_logo.png" alt="X Logo">
+        </div>
+
+        <h1>Create your account</h1>
+
+        <form class="register-form" id="registerForm" onsubmit="return validateForm(event)">
+            
+            <!-- Uporabniško ime -->
+            <div class="input-group">
+                <input type="text" name="username" id="username" class="vnos" placeholder="Username" required>
+            </div>
+
+            <!-- Ime in priimek -->
+            <div class="name-row">
+                <input type="text" name="firstname" id="firstname" class="vnos" placeholder="First name" required>
+                <input type="text" name="lastname" id="lastname" class="vnos" placeholder="Last name" required>
+            </div>
+
+            <!-- Datum rojstva (pred emailom) -->
+            <div class="input-group dob-group">
+                <div class="dob-title">Date of birth</div>
+                <div class="dob-info">
+                    This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.
+                </div>
+                <div class="dob-row">
+                    <!-- Mesec -->
+                    <select name="dob_month" id="dobMonth" class="country-select dob-month" required>
+                        <option value="" disabled selected>Month</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                    <!-- Dan -->
+                    <select name="dob_day" id="dobDay" class="country-select dob-day" required>
+                        <option value="" disabled selected>Day</option>
+                        <script>
+                            for(let i=1; i<=31; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                    <!-- Leto -->
+                    <select name="dob_year" id="dobYear" class="country-select dob-year" required>
+                        <option value="" disabled selected>Year</option>
+                        <script>
+                            const currentYear = new Date().getFullYear();
+                            for(let i=currentYear; i>=1900; i--) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Gmail / Email -->
+            <div class="input-group">
+                <input type="email" name="email" id="email" class="vnos" placeholder="Email (Gmail)" required>
+            </div>
+
+            <!-- Telefonska številka z izbiro države -->
+            <div class="phone-group">
+                <select name="country_code" id="countryCode" class="country-select">
+                    <option value="+386">🇸🇮 +386</option>
+                    <option value="+381">🇷🇸 +381</option>
+                    <option value="+385">🇭🇷 +385</option>
+                    <option value="+39">🇮🇹 +39</option>
+                    <option value="+43">🇦🇹 +43</option>
+                    <option value="+49">🇩🇪 +49</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+44">🇬🇧 +44</option>
+                </select>
+                <input type="tel" name="phone" id="phone" class="vnos phone-input" placeholder="Phone number" required>
+            </div>
+
+            <!-- Geslo -->
+            <div class="input-group">
+                <input type="password" name="password" id="password" class="vnos" placeholder="Password" oninput="checkPasswordStrength()" required>
+                <!-- Password Strength Bar -->
+                <div class="strength-meter">
+                    <div id="strengthBar" class="strength-bar"></div>
+                </div>
+                <div id="strengthText" class="strength-text">Minimum 8 characters (1 uppercase, 1 number, 1 special character)</div>
+            </div>
+
+            <!-- Gumb za oddajo (Next) in gumb Nazaj (Back) -->
+            <button type="submit" class="oddaja btn-mt">Next</button>
+            <button type="button" class="oddaja btn-back" onclick="window.location.href='index.html'">Back</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <a href="https://about.x.com/en" target="_blank">About</a>
+        <a href="https://help.x.com/en/using-x/download-the-x-app" target="_blank">Get App</a>
+        <a href="https://grok.com/" target="_blank">Grok</a>
+        <a href="https://help.x.com/en" target="_blank">Help</a>
+        <a href="https://x.com/en/tos" target="_blank">Terms</a>
+        <a href="https://x.com/en/privacy" target="_blank">Privacy</a>
+        <a href="">© 2026 X Corp.</a>
+    </footer>
+
+    <!-- Skripta za preverjanje moči gesla in validacijo -->
+    <script src="register.js"></script>
+</body>
+</html>

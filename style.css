@@ -1,0 +1,503 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+.obrazec {
+    display: flex;  
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-top: 90px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.leva {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 450px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    line-height: 1.1;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 300px;
+}
+
+.btn {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    width: 350px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 9px;
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    user-select: none;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 350px;
+    margin: 15px 0;
+    color: #71767b;
+    font-size: 15px;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #2f3336;
+    width: 350px;
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 345px;
+}
+
+.vnos {
+    background-color: #16181c !important;
+    border: 1px solid #333639;
+    border-radius: 4px;
+    padding: 16px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    width: 350px;
+    transition: border-color 0.2s;
+}
+
+.vnos:focus {
+    border-color: #1d9bf0;
+}
+
+.oddaja {
+    background-color: #eff3f4;
+    color: #0f1419;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    width: 350px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.oddaja:hover {
+    background-color: #d7dbdc;
+}
+
+.desna {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+}
+
+.qr-text {
+    font-size: 12px;
+    color: #71767b;
+    margin-bottom: 10px;
+}
+
+.giant-x img {
+    width: 650px;
+}
+
+.qr-box {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    border: 1px solid #2f3336;
+    border-radius: 16px;
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.qr-box:hover {
+    transform: scale(1.08);
+}
+
+.qr-visual {
+    background: transparent;
+    padding: 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-visual img {
+    width: 150px;
+    height: 150px;
+    filter: invert(100%) hue-rotate(180deg);
+}
+
+.terms {
+    font-size: 11px;
+    color: #71767b;
+    width: 350px;
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+.terms a {
+    color: #1d9bf0;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    font-size: 13px;
+    color: #71767b;
+}
+
+.footer a {
+    color: #71767b;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.slika img {
+    width: 600px;
+    height: 600px;
+    filter: invert(100%) hue-rotate(180deg);
+}
+
+.slika {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #2f3336;
+    border-radius: 16px;
+    width: 700px;
+    margin: 0 auto;
+}
+
+#get {
+    text-align: center;
+}
+
+/* qr.html */
+.x a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 23px;
+}
+
+.x a:hover {
+    background-color: grey;
+    border-radius: 50px;
+    transition: background-color 0.5s;
+}
+
+/* --- Stili za registracijsko in prijavno stran --- */
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.register-header-logo img {
+    width: 40px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.register-container h1 {
+    font-size: 31px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: left;
+    width: 100%;
+    max-width: 350px;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.name-row {
+    display: flex;
+    gap: 10px;
+    width: 350px;
+}
+
+.name-row .vnos {
+    width: 170px;
+    padding: 14px 12px;
+}
+
+.phone-group {
+    display: flex;
+    gap: 8px;
+    width: 350px;
+}
+
+.country-select {
+    background-color: #16181c !important;
+    color: #ffffff !important;
+    border: 1px solid #333639;
+    border-radius: 4px;
+    padding: 0 10px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.country-select option {
+    background-color: #16181c !important;
+    color: #ffffff !important;
+}
+
+.country-select:focus {
+    border-color: #1d9bf0;
+}
+
+.phone-input {
+    width: 250px !important;
+}
+
+/* Strength Bar stili */
+.strength-meter {
+    width: 350px;
+    height: 4px;
+    background-color: #2f3336;
+    border-radius: 2px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.strength-text {
+    font-size: 11px;
+    color: #71767b;
+    margin-top: 5px;
+}
+
+/* --- Dodatni razredi za prenos iz HTML inline stilov --- */
+
+.hidden-step {
+    display: none;
+}
+
+.btn-mt {
+    margin-top: 15px;
+}
+
+.btn-back {
+    margin-top: 10px;
+    background-color: transparent !important;
+    color: white !important;
+    border: 1px solid #333639 !important;
+}
+
+.btn-back:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.user-info-display {
+    font-size: 14px;
+    color: #71767b;
+    margin-bottom: 10px;
+}
+
+.success-message {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.success-title {
+    color: #00ba7c;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.btn-register {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    line-height: normal;
+}
+
+/* Stili za datum rojstva */
+.dob-group {
+    margin-bottom: 5px;
+}
+
+.dob-title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.dob-info {
+    font-size: 12px;
+    color: #71767b;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.dob-row {
+    display: flex;
+    gap: 8px;
+    width: 350px;
+}
+
+.dob-month {
+    flex: 2;
+    padding: 14px 10px;
+}
+
+.dob-day {
+    flex: 1;
+    padding: 14px 10px;
+}
+
+.dob-year {
+    flex: 1.2;
+    padding: 14px 10px;
+}
+
+/* ==========================================
+   ODZIVNI DIZAJN (VEDNO NA SAMEM KOCU DATOTEKE)
+   ========================================== */
+
+@media (max-width: 1024px) {
+    .obrazec {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 20px;
+    }
+
+    .desna {
+        order: -1;
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .giant-x img {
+        width: 50px !important;
+        height: auto !important;
+    }
+
+    .qr-box {
+        display: none;
+    }
+
+    .leva {
+        width: 100%;
+        max-width: 400px;
+        align-items: center;
+        padding: 0;
+    }
+
+    h1 {
+        font-size: 40px;
+        text-align: left;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .buttons, 
+    .btn, 
+    .divider, 
+    .login-form, 
+    .vnos, 
+    .oddaja, 
+    .terms {
+        width: 100%;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .terms {
+        text-align: left;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+}
